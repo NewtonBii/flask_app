@@ -10,12 +10,14 @@ Movie = movie.Movie
 api_key = app.config['MOVIE_API_KEY']
 
 # Getting the movie base url
-base_url = app.config["MOVIE_API_BASE_URL"]
+# base_url = app.config["MOVIE_API_BASE_URL"]
+base_url = 'https://api.themoviedb.org/3/movie/{}?api_key={}'
 
 
 def get_movies(category):
     """Function that gets the json response to our url request"""
     get_movies_url = base_url.format(category, api_key)
+    # return get_movies_url
 
     with urllib.request.urlopen(get_movies_url) as url:
         get_movies_data = url.read()
